@@ -30,7 +30,6 @@ function App() {
   useEffect(() => {
     if (result.state != "none") {
       alert(`Game End! Winning: ${result.winner}`);
-      restartGame();
     }
   }, [result]);
 
@@ -120,16 +119,39 @@ function App() {
               chooseSquare(8);
             }}/>
       </Board>
+         <Button onClick={ () =>  restartGame() }>Restart Game</Button>
     </Container>
   )
 }
 const Container = styled.div`
+  margin-top:25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `
-
+const Button = styled.button`
+margin-top: 25px;
+cursor: pointer;
+outline: 0;
+display: inline-block;
+font-weight: 400;
+line-height: 1.5;
+text-align: center;
+background-color: transparent;
+border: 1px solid transparent;
+padding: 6px 12px;
+font-size: 1rem;
+border-radius: .25rem;
+transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+color: #0d6efd;
+border-color: #0d6efd;
+:hover {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+`
 const Board = styled.div`
   background: lightgray;
   display: grid;
